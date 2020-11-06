@@ -175,11 +175,12 @@ def create_public_key(private_key):
     #finding list B
     for x in range(0,len(private_key[0])):
         B.append((R*W[x])%Q)
-    return B
+    return tuple(B)
 
 # Arguments: string, tuple (W, Q, R)
 # Returns: list of integers
 def encrypt_mhkc(plaintext, public_key):
+    public_key = list(public_key)
     C_values = []
     
     #for charecters in the text
